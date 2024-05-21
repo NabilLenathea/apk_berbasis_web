@@ -1,3 +1,23 @@
+<?php
+session_start();
+
+if(empty($_SESSION['id_petugas'])) {
+    echo "<script>
+    alert('Maaf anda belum login');
+    window.location.assign('../index2.php');
+    </script>";
+}
+
+if($_SESSION['level']!='admin') {
+    echo "<script>
+        alert('Maaf anda bukan sesi admin');
+        window.location.assign('../index2.php');
+        </script>";
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +63,7 @@
 
         </div>
     </div>
-    
+
     </div>
 
 <script src="../js/bootstrap.bundle.min.js"></script>
